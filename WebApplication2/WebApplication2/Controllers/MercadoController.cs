@@ -58,6 +58,16 @@ namespace Placemybet.Controllers
             repo.Save(Mercado);
         }
 
+        [HttpGet]
+        [Route("api/Mercados/Ex/id={id}")]
+        public MercadoEx GetEx(int id)
+        {
+
+            var repo = new MercadoRepository();
+            MercadoEx d = repo.RetrieveEx(id);
+            return d;
+
+        }
         // POST: api/Discos
         //public void Post([FromBody]Disco disco)
         //{

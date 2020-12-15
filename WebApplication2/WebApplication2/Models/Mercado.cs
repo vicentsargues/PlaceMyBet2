@@ -44,6 +44,22 @@ namespace Placemybet.Models
         public double Cuota_under { get; set; }
     }
 
+
+    public class MercadoEx
+    {
+        public MercadoEx(double dinero, string over_under,  string nombre)
+        {
+            Dinero = dinero;
+            Over_under = over_under;
+            Nombre = nombre;
+         
+        }
+        public double Dinero { get; set; }
+        public string Over_under { get; set; }
+
+        public string Nombre { get; set; }
+    }
+
 }
 
 

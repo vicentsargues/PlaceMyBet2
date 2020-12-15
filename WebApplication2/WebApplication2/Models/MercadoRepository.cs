@@ -116,15 +116,42 @@ namespace WebApplication2.Models
 
             }
 
+        public MercadoEx ToEx(Mercado e)
+        {
+            return new MercadoEx(e.DineroOver,e.OverUnder,e.OverUnder);
+        }
+
+        internal MercadoEx RetrieveEx(int id)
+        {
+            Mercado mercado;
+
+            using (PMBContext context = new PMBContext())
+            {
+                mercado = context.Mercados
+                    .Where(s => s.MercadoId == id)
+                    .FirstOrDefault();
+            }
+
+
+            MercadoEx merc = ToEx(mercado);
+
+
+
+
+            return merc;
 
         }
 
-
-
-        
-
-
     }
+
+
+
+
+
+
+
+
+}
 
 
 

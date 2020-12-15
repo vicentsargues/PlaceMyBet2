@@ -54,6 +54,31 @@ namespace Placemybet.Controllers
 
         }
 
+        /*** Ejercicio 1 ***/
+        [HttpGet]
+        [Route("api/Mercados/GetEx/id={id}")]
+        public List<ApuestaEx> GetEx(int id)
+        {
+            var repo = new ApuestaRepository();
+            List<ApuestaEx> discos = repo.RetrieveEx(id);
+            return discos;
+
+        }
+        /*** Fin Ejercicio 1 ***/
+
+
+
+        /*** Ejercicio 2 ***/
+        [HttpGet]
+        [Route("api/Mercados/GetEx2/din={din}")]
+        public List<ApuestaEx2> GetEx2(int din)
+        {
+            var repo = new ApuestaRepository();
+            List<ApuestaEx2> discos = repo.RetrieveEx2(din);
+            return discos;
+
+        }
+        /*** Fin Ejercicio 2 ***/
     }
 }
 

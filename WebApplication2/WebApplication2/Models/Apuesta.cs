@@ -62,4 +62,44 @@ namespace Placemybet.Models
     }
 
 
+    public class ApuestaEx
+    {
+        public ApuestaEx(double dinero, string tipo, string nombre)
+        {
+
+            Dinero = dinero;
+            Tipo = tipo;
+            Nombre = nombre;
+
+        }
+
+        public double Dinero { get; set; }
+        public  string Tipo { get; set; }
+        public  string Nombre { get; set; }
+
+
+    }
+
+
+    public class ApuestaEx2
+    {
+        public ApuestaEx2( string tipo, string eqVis, string eqLoc)
+        {
+
+
+            Tipo = tipo;
+            EqVis = eqVis;
+            EqLoc = eqLoc;
+
+        }
+
+
+        public string Tipo { get; set; }
+        public string EqVis { get; set; }
+        public string EqLoc { get; set; }
+
+
+    }
+
+
 }

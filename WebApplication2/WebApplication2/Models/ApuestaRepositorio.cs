@@ -91,7 +91,75 @@ namespace WebApplication2.Models
             return ApuestaDTO;
 
         }
+         /*** Ejercicio 1 (He tenido varios problemas con el tema de las llamadas como ya he comentado contigo y tampoco he podido solucionarlo para el examen, disculpas) ***/ 
 
+        public ApuestaEx ToEx(Apuesta e)
+        {
+            return new ApuestaEx(e.Dinero, e.MercadoOverUnder, e.Usuario.Nombre);
+        }
+
+
+
+        internal List<ApuestaEx>  RetrieveEx(int id)
+        {
+
+
+
+            using (PMBContext context = new PMBContext())
+            {
+                List <Apuesta> apuestas = context.Apuestas
+                    .Where(s => s.MercadoId == id)
+                    .Include(p => p.Usuario).ToList();
+            
+            List<ApuestaEx> ApuestasEx = new List<ApuestaEx>();
+            foreach (Apuesta item in apuestas)
+            {
+                ApuestaEx Ex = ToEx(item);
+                ApuestasEx.Add(Ex);
+
+            }
+                return ApuestasEx;
+            }
+
+
+        }
+        /*** Fin Ejercicio 1 ***/
+
+
+
+        /*** Ejercicio 2 (He tenido varios problemas con el tema de las llamadas como ya he comentado contigo y tampoco he podido solucionarlo para el examen, disculpas) ***/
+
+        public ApuestaEx2 ToEx2(Apuesta e)
+        {
+            return new ApuestaEx2(e.MercadoOverUnder, e.Evento.EqVis, e.Evento.EqLoc );
+        }
+
+
+
+        internal List<ApuestaEx2> RetrieveEx2(int id)
+        {
+
+
+
+            using (PMBContext context = new PMBContext())
+            {
+                List<Apuesta> apuestas = context.Apuestas
+                    .Where(s => s.Dinero > id)
+                    .Include(p => p.Evento).ToList();
+
+                List<ApuestaEx2> ApuestasEx = new List<ApuestaEx2>();
+                foreach (Apuesta item in apuestas)
+                {
+                    ApuestaEx2 Ex = ToEx2(item);
+                    ApuestasEx.Add(Ex);
+
+                }
+                return ApuestasEx;
+            }
+
+
+        }
+        /*** Fin Ejercicio 2 ***/
 
     }
 
